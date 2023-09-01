@@ -25,11 +25,10 @@ class CandidatosController < ApplicationController
 
     respond_to do |format|
       if @candidato.save
-        format.html { redirect_to candidato_url(@candidato), notice: "Candidato was successfully created." }
-        format.json { render :show, status: :created, location: @candidato }
+        flash[:success] = 'Candidato criado com sucesso'
+        redirect_to root_path
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @candidato.errors, status: :unprocessable_entity }
+        render 'new'
       end
     end
   end
@@ -58,6 +57,11 @@ class CandidatosController < ApplicationController
   end
 
   private
+
+  def candidato_params
+    params.require(:candidato).permit(:nome, :email, :cpf, :data, :telefone)
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_candidato
       @candidato = Candidato.find(params[:id])
