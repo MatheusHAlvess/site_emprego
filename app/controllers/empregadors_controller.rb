@@ -1,5 +1,5 @@
 class EmpregadorsController < ApplicationController
-  before_action :set_empregador, only: %i[ show edit update destroy ]
+  before_action :set_empregador, only: [:show]
 
   # GET /empregadors or /empregadors.json
   def index
@@ -23,13 +23,10 @@ class EmpregadorsController < ApplicationController
   def create
     @empregador = Empregador.new(empregador_params)
 
-    respond_to do |format|
       if @empregador.save
-        format.html { redirect_to empregador_url(@empregador), notice: "Empregador was successfully created." }
-        format.json { render :show, status: :created, location: @empregador }
+        flash[:succes] = 'Empregador criado com sucesso'
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @empregador.errors, status: :unprocessable_entity }
+        render 'new'
       end
     end
   end
@@ -67,4 +64,3 @@ class EmpregadorsController < ApplicationController
     def empregador_params
       params.require(:empregador).permit(:nome, :nomeEmpresa, :email, :endereco, :telefone, :cnpj)
     end
-end

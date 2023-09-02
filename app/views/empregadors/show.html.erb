@@ -1,10 +1,8 @@
-<p style="color: green"><%= notice %></p>
+<h1>Detalhes do Empregador</h1>
 
-<%= render @empregador %>
-
-<div>
-  <%= link_to "Edit this empregador", edit_empregador_path(@empregador) %> |
-  <%= link_to "Back to empregadors", empregadors_path %>
-
-  <%= button_to "Destroy this empregador", @empregador, method: :delete %>
-</div>
+<p><strong>Nome:</strong> <%= @empregador.none %></p>
+<p><strong>Nome da Empresa:</strong> <%= @empregador.nome_empresa %></p>
+<p><strong>E-mail:</strong> <%= @empregador.email %></p>
+<p><strong>Endereço:</strong> <%= @empregador.endereco %></p>
+<p><strong>Telefone:</strong> <%= @empregador.telefone %></p>
+<p><strong>CNPJ:</strong> <%= @empregador.cnpj %></p>

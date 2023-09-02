@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :candidatos, only: [:new, :create]
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  #resources :candidatos, only: [:new, :create]
+  #root 'candidatos#new'
 
-  # Defines the root path route ("/")
-  root 'candidatos#new'
+  resources :empregadors, only: [:new, :create, :show, :index]
+  root 'empregadors#new'
 end

@@ -1,14 +1,26 @@
-<p style="color: green"><%= notice %></p>
+<h1>Lista de Empregadores</h1>
 
-<h1>Empregadors</h1>
-
-<div id="empregadors">
-  <% @empregadors.each do |empregador| %>
-    <%= render empregador %>
-    <p>
-      <%= link_to "Show this empregador", empregador %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New empregador", new_empregador_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Nome da Empresa</th>
+      <th>Email</th>
+      <th>Endereço</th>
+      <th>Telefone</th>
+      <th>CNPJ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @empregadors.each do |empregador| %>
+        <tr>
+          <td><%= empregador.none %></td>
+          <td><%= empregador.nomeEmpresa %></td>
+          <td><%= empregador.email %></td>
+          <td><%= empregador.endereco %></td>
+          <td><%= empregador.telefone %></td>
+          <td><%= empregador.cnpj %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>

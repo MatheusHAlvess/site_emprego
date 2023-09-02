@@ -1,9 +1,26 @@
-<h1>New empregador</h1>
+<h1>Cadastro de Empregador</h1>
 
-<%= render "form", empregador: @empregador %>
+<%= form_for @empregador do |f| %>
+  <%= render 'shared/errors', object: @empregador %>
 
-<br>
+  <%= f.label :nome %>
+  <%= f.text_field :nome %>
 
-<div>
-  <%= link_to "Back to empregadors", empregadors_path %>
-</div>
+  <%= f.label :nomeEmpresa %>
+  <%= f.text_field :nomeEmpresa %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+
+  <%= f.label :endereco %>
+  <%= f.text_field :endereco %>
+
+  <%= f.label :telefone %>
+  <%= f.text_field :telefone %>
+
+  <%= f.label :cnpj %>
+  <%= f.text_field :cnpj %>
+
+  <%= f.submit 'Criar Empregador' %>
+
+<% end %>
