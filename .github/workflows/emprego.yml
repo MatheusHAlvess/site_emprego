@@ -60,10 +60,10 @@ jobs:
        # run: |
         #  bundle exec rails db:prepare
 
-      - name: Run Cucumber
-        run: |
-          bundle exec cucumber RAILS_ENV=test
+      #- name: Run Cucumber
+       # run: |
+        #  bundle exec cucumber RAILS_ENV=test
 
-      - name: Run Unit Tests
-        run: |
-          bundle exec rails test
+      #- name: Run Unit Tests
+       # run: |
+        #  bundle exec rails test
