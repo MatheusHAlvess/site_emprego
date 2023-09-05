@@ -23,4 +23,7 @@ test:
 production:
   <<: *default
   adapter: postgreesql
+  database: bancoemprego
+  username: bancoemprego_user
+  password: AS2JD0v8DZyimKX4vPHivmuIeFqu2cIO
   url: <%= ENV['DATABASE_URL'] %>
