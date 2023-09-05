@@ -13,37 +13,35 @@ class CandidaturasController < ApplicationController
   # GET /candidaturas/new
   def new
     @candidatura = Candidatura.new
+    @vagas = Vaga.all
   end
 
   # GET /candidaturas/1/edit
   def edit
+    @candidatura = Candidatura.find(params[:id])
   end
 
   # POST /candidaturas or /candidaturas.json
   def create
     @candidatura = Candidatura.new(candidatura_params)
-
-    respond_to do |format|
-      if @candidatura.save
-        format.html { redirect_to candidatura_url(@candidatura), notice: "Candidatura was successfully created." }
-        format.json { render :show, status: :created, location: @candidatura }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @candidatura.errors, status: :unprocessable_entity }
-      end
+    if @candidatura.save
+      flash[:success] = 'Candidatura criada com sucesso!'
+      redirect_to root_path # Redirecione para a página desejada após a criação da candidatura.
+    else
+      flash.now[:error] = 'Não foi possível criar a candidatura. Verifique os campos obrigatórios'
+      render 'new'
     end
   end
 
   # PATCH/PUT /candidaturas/1 or /candidaturas/1.json
   def update
-    respond_to do |format|
-      if @candidatura.update(candidatura_params)
-        format.html { redirect_to candidatura_url(@candidatura), notice: "Candidatura was successfully updated." }
-        format.json { render :show, status: :ok, location: @candidatura }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @candidatura.errors, status: :unprocessable_entity }
-      end
+    @candidatura = Candidatura.find(params[:id])
+    if @candidatura.update(candidatura_params)
+      flash[:success] = 'Candidatura editada com sucesso!'
+      redirect_to root_path # Redirecione para a página desejada após a edição da candidatura.
+    else
+      flash.now[:error] = 'Não foi possível editar a candidatura. Verifique os campos obrigatórios.'
+      render 'edit'
     end
   end
 

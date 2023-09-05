@@ -1,10 +1,7 @@
-<p style="color: green"><%= notice %></p>
+<h1>Detalhes da Candidatura</h1>
 
-<%= render @candidatura %>
+<p><strong>Vaga:</strong> <%= @candidatura.vaga.titulo %></p>
+<p><strong>Candidato:</strong> <%= @candidatura.candidato.nome %></p>
+<p><strong>Mensagem:</strong> <%= @candidatura.mensagem %></p>
 
-<div>
-  <%= link_to "Edit this candidatura", edit_candidatura_path(@candidatura) %> |
-  <%= link_to "Back to candidaturas", candidaturas_path %>
-
-  <%= button_to "Destroy this candidatura", @candidatura, method: :delete %>
-</div>
+<%= link_to 'Editar Candidatura', edit_candidatura_path(@candidatura) %>

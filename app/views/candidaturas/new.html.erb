@@ -1,9 +1,16 @@
-<h1>New candidatura</h1>
+<h1>Criar Candidatura</h1>
 
-<%= render "form", candidatura: @candidatura %>
+<%= form_for @candidatura do |f| %>
+  <%= render 'shared/errors', object: @candidatura %>
 
-<br>
+  <%= f.label :status %>
+  <%= f.text_field :status %>
 
-<div>
-  <%= link_to "Back to candidaturas", candidaturas_path %>
-</div>
+  <%= f.label :mensagem %>
+  <%= f.text_area :mensagem %>
+
+  <%= f.label :vaga_id, 'Selecione a vaga:' %>
+  <%= f.collection_select(:vaga_id, @vagas, :id, :titulo) %>
+
+  <%= f.submit 'Criar Candidatura' %>
+<% end %>
