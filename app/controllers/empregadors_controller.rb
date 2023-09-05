@@ -8,6 +8,7 @@ class EmpregadorsController < ApplicationController
 
   # GET /empregadors/1 or /empregadors/1.json
   def show
+    @empregador = Empregador.find(params[:id])
   end
 
   # GET /empregadors/new
@@ -15,9 +16,24 @@ class EmpregadorsController < ApplicationController
     @empregador = Empregador.new
   end
 
+  def new_vaga
+    @vaga = Vaga.new
+  end
+
   # GET /empregadors/1/edit
   def edit
     @empregador = Empregador.find(params[:id])
+  end
+
+  def create_vaga
+    @vaga = Vaga.new(vaga_params)
+    @vaga.empregador = current_empregador
+
+    if @vaga.save
+      redirect_to @vaga, notice: 'Vaga criada com sucesso'
+    else
+      render 'new_vaga'
+    end
   end
 
   # POST /empregadors or /empregadors.json
@@ -62,3 +78,8 @@ end
     def empregador_params
       params.require(:empregador).permit(:nome, :nomeEmpresa, :email, :endereco, :telefone, :cnpj)
     end
+
+    def vaga_params
+      params.require(:vaga).permit(:titulo, :descricao, :salario)
+    end
+

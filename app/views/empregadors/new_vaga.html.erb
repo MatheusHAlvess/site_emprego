@@ -1,0 +1,12 @@
+<%= form_for [@empregador, @vaga] do |f| %>
+  <%= f.label :titulo %>
+  <%= f.text_field :titulo %>
+
+  <%= f.label :descricao %>
+  <%= f.text_area :descricao %>
+
+  <%= f.label :salario %>
+  <%= f.text_field :salario %>
+
+  <%= f.submit 'Criar Vaga' %>
+<% end %>

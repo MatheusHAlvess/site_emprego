@@ -8,3 +8,4 @@
 <p><strong>CNPJ:</strong> <%= @empregador.cnpj %></p>
 
 <%= link_to 'Excluir Empregador', @empregador, method: :delete, data: { confirm: 'Tem certeza que deseja excluir este empregador?' } %>
+<%= link_to 'Criar nova Vaga', new_vaga_empregador_path(@empregador) %>
