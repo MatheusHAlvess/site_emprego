@@ -1,7 +1,6 @@
 <h1>Cadastro de Candidato</h1>
 
 <%= form_for @candidato do |f| %>
-  <%= render 'shared/errors', object:@candidato %>
 
   <%= f.label :nome %>
   <%= f.text_field :nome %>
@@ -18,6 +17,6 @@
   <%= f.label :telefone %>>
   <%= f.text_field :telefone %>
 
-  <%= f.submit 'Salvar Candidato' %>>
+  <%= f.submit 'Criar Candidato' %>>
 
 <% end %>

@@ -1,16 +1,13 @@
 <h1>Criar Candidatura</h1>
 
 <%= form_for @candidatura do |f| %>
-  <%= render 'shared/errors', object: @candidatura %>
 
   <%= f.label :status %>
   <%= f.text_field :status %>
 
-  <%= f.label :mensagem %>
-  <%= f.text_area :mensagem %>
+  <%= f.label :Mensagem %>
+  <%= f.text_area :msg %>
 
-  <%= f.label :vaga_id, 'Selecione a vaga:' %>
-  <%= f.collection_select(:vaga_id, @vagas, :id, :titulo) %>
 
   <%= f.submit 'Criar Candidatura' %>
 <% end %>

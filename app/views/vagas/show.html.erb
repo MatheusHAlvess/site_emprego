@@ -1,7 +1,9 @@
 <h1>Detalhes da Vaga</h1>
 
-<p><strong>Título:</strong> <%= @vaga.titulo %></p>
-<p><strong>Descrição:</strong> <%= @vaga.descricao %></p>
-<p><strong>Salário:</strong> <%= @vaga.salario %></p>
+<%=render @vaga %>
+
+<p><strong>Título: </strong> <%= @vaga.titulo %></p>
+<p><strong>Descrição: </strong> <%= @vaga.descricao %></p>
+<p><strong>Salário: </strong> <%= @vaga.salario %></p>
 
 <%= link_to 'Voltar para a lista de vagas', vagas_path %>

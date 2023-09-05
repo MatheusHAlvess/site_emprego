@@ -4,5 +4,5 @@ class Candidatura < ApplicationRecord
   belongs_to :vaga
 
   validates :status, presence: true
-  validates: mensagem, presence: true
+  validates :msg, presence: true
 end

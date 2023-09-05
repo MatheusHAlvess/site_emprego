@@ -1,7 +1,6 @@
 <h1>Criar Vaga</h1>
 
 <%= form_for @vaga do |f| %>
-  <%= render 'shared/errors', object: @vaga %>
 
   <%= f.label :titulo %>
   <%= f.text_field :titulo %>

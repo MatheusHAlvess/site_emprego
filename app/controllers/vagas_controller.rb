@@ -26,9 +26,9 @@ class VagasController < ApplicationController
     @vaga = Vaga.new(vaga_params)
 
     respond_to do |format|
+
       if @vaga.save
-        flash[:success] = 'Vaga criada com sucesso! Boa Sorte!'
-        redirect_to @vaga
+        redirect_to @vaga, notice: 'Vaga criada com sucesso'
       else
         render 'new'
       end
@@ -62,6 +62,6 @@ class VagasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def vaga_params
-      params.require(:vaga).permit(:titulo, :descricao, :salario, :empregador_id)
+      params.require(:vaga).permit(:titulo, :descricao, :salario)
     end
 end

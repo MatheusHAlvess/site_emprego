@@ -1,5 +1,5 @@
 class EmpregadorsController < ApplicationController
-  before_action :set_empregador, only: [:show]
+  before_action :set_empregador, only: %i[ show edit update destroy ]
 
   # GET /empregadors or /empregadors.json
   def index
@@ -26,20 +26,21 @@ class EmpregadorsController < ApplicationController
 
       if @empregador.save
         flash[:succes] = 'Empregador criado com sucesso'
+        redirect_to empregadors_path
       else
         render 'new'
       end
     end
-  end
+end
 
   # PATCH/PUT /empregadors/1 or /empregadors/1.json
   def update
-  @empregador = Empregador.find(params[:id])
+    @empregador = Empregador.find(params[:id])
     if @empregador.update(empregador_params)
-    flash[:success] = 'Empregador atualizado com sucesso!'
-    redirect_to @empregador
+      flash[:success] = 'Empregador atualizado com sucesso!'
+      redirect_to @empregador
     else
-    render 'edit'
+      render 'edit'
     end
   end
 

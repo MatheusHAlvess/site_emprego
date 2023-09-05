@@ -26,7 +26,6 @@ class CandidatosController < ApplicationController
     respond_to do |format|
       if @candidato.save
         flash[:success] = 'Candidato criado com sucesso'
-        redirect_to root_path
       else
         render 'new'
       end
@@ -57,10 +56,6 @@ class CandidatosController < ApplicationController
   end
 
   private
-
-  def candidato_params
-    params.require(:candidato).permit(:nome, :email, :cpf, :data, :telefone)
-  end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_candidato
