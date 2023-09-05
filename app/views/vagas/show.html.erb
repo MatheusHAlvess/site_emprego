@@ -1,10 +1,7 @@
-<p style="color: green"><%= notice %></p>
+<h1>Detalhes da Vaga</h1>
 
-<%= render @vaga %>
+<p><strong>Título:</strong> <%= @vaga.titulo %></p>
+<p><strong>Descrição:</strong> <%= @vaga.descricao %></p>
+<p><strong>Salário:</strong> <%= @vaga.salario %></p>
 
-<div>
-  <%= link_to "Edit this vaga", edit_vaga_path(@vaga) %> |
-  <%= link_to "Back to vagas", vagas_path %>
-
-  <%= button_to "Destroy this vaga", @vaga, method: :delete %>
-</div>
+<%= link_to 'Voltar para a lista de vagas', vagas_path %>

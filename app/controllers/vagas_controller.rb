@@ -8,6 +8,7 @@ class VagasController < ApplicationController
 
   # GET /vagas/1 or /vagas/1.json
   def show
+    @vaga = Vaga.find(params[:id])
   end
 
   # GET /vagas/new
@@ -17,6 +18,7 @@ class VagasController < ApplicationController
 
   # GET /vagas/1/edit
   def edit
+    @vaga = Vaga.find(params[id])
   end
 
   # POST /vagas or /vagas.json
@@ -25,36 +27,31 @@ class VagasController < ApplicationController
 
     respond_to do |format|
       if @vaga.save
-        format.html { redirect_to vaga_url(@vaga), notice: "Vaga was successfully created." }
-        format.json { render :show, status: :created, location: @vaga }
+        flash[:success] = 'Vaga criada com sucesso! Boa Sorte!'
+        redirect_to @vaga
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @vaga.errors, status: :unprocessable_entity }
+        render 'new'
       end
     end
   end
 
   # PATCH/PUT /vagas/1 or /vagas/1.json
   def update
-    respond_to do |format|
-      if @vaga.update(vaga_params)
-        format.html { redirect_to vaga_url(@vaga), notice: "Vaga was successfully updated." }
-        format.json { render :show, status: :ok, location: @vaga }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @vaga.errors, status: :unprocessable_entity }
-      end
+    @vaga = Vaga.find(params[:id])
+    if @vaga.update(vaga_params)
+      flash[:success] = 'Vaga atualizada com sucesso!'
+      redirect_to @vaga
+    else
+      render 'edit'
     end
   end
 
   # DELETE /vagas/1 or /vagas/1.json
   def destroy
+    @vaga = Vaga.find(params[:id])
     @vaga.destroy
-
-    respond_to do |format|
-      format.html { redirect_to vagas_url, notice: "Vaga was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    flash[:success] = 'Vaga removida com sucesso!'
+    redirect_to vagas_path
   end
 
   private

@@ -1,10 +1,16 @@
-<h1>Editing vaga</h1>
+<h1>Editar Vaga</h1>
 
-<%= render "form", vaga: @vaga %>
+<%= form_for @vaga do |f| %>
+  <%= render 'shared/errors', object: @vaga %>
 
-<br>
+  <%= f.label :titulo %>
+  <%= f.text_field :titulo %>
 
-<div>
-  <%= link_to "Show this vaga", @vaga %> |
-  <%= link_to "Back to vagas", vagas_path %>
-</div>
+  <%= f.label :descricao %>
+  <%= f.text_area :descricao %>
+
+  <%= f.label :salario %>
+  <%= f.text_field :salario %>
+
+  <%= f.submit 'Atualizar Vaga' %>
+<% end %>

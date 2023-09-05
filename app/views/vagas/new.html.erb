@@ -1,9 +1,16 @@
-<h1>New vaga</h1>
+<h1>Criar Vaga</h1>
 
-<%= render "form", vaga: @vaga %>
+<%= form_for @vaga do |f| %>
+  <%= render 'shared/errors', object: @vaga %>
 
-<br>
+  <%= f.label :titulo %>
+  <%= f.text_field :titulo %>
 
-<div>
-  <%= link_to "Back to vagas", vagas_path %>
-</div>
+  <%= f.label :descricao %>
+  <%= f.text_area :descricao %>
+
+  <%= f.label :salario %>
+  <%= f.text_field :salario %>
+
+  <%= f.submit 'Criar Vaga' %>
+<% end %>
