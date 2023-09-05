@@ -56,14 +56,3 @@ jobs:
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
 
-      #- name: Prepare Database
-       # run: |
-        #  bundle exec rails db:prepare
-
-      #- name: Run Cucumber
-       # run: |
-        #  bundle exec cucumber RAILS_ENV=test
-
-      #- name: Run Unit Tests
-       # run: |
-        #  bundle exec rails test

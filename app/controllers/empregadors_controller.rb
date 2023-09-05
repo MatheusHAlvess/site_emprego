@@ -17,6 +17,7 @@ class EmpregadorsController < ApplicationController
 
   # GET /empregadors/1/edit
   def edit
+    @empregador = Empregador.find(params[:id])
   end
 
   # POST /empregadors or /empregadors.json
@@ -33,25 +34,21 @@ class EmpregadorsController < ApplicationController
 
   # PATCH/PUT /empregadors/1 or /empregadors/1.json
   def update
-    respond_to do |format|
-      if @empregador.update(empregador_params)
-        format.html { redirect_to empregador_url(@empregador), notice: "Empregador was successfully updated." }
-        format.json { render :show, status: :ok, location: @empregador }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @empregador.errors, status: :unprocessable_entity }
-      end
+  @empregador = Empregador.find(params[:id])
+    if @empregador.update(empregador_params)
+    flash[:success] = 'Empregador atualizado com sucesso!'
+    redirect_to @empregador
+    else
+    render 'edit'
     end
   end
 
   # DELETE /empregadors/1 or /empregadors/1.json
   def destroy
+    @empregador = Empregador.find(params[:id])
     @empregador.destroy
-
-    respond_to do |format|
-      format.html { redirect_to empregadors_url, notice: "Empregador was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    flash[:success] = 'Empregador excluído com sucesso!'
+    redirect_to empregadores_path
   end
 
   private

@@ -6,3 +6,15 @@
 <p><strong>Endereço:</strong> <%= @empregador.endereco %></p>
 <p><strong>Telefone:</strong> <%= @empregador.telefone %></p>
 <p><strong>CNPJ:</strong> <%= @empregador.cnpj %></p>
+
+<!-- app/views/empregadores/show.html.erb -->
+<h1>Detalhes do Empregador</h1>
+
+<p><strong>Nome:</strong> <%= @empregador.nome %></p>
+<p><strong>Nome da Empresa:</strong> <%= @empregador.nome_empresa %></p>
+<p><strong>Email:</strong> <%= @empregador.email %></p>
+<p><strong>Endereço:</strong> <%= @empregador.endereco %></p>
+<p><strong>Telefone:</strong> <%= @empregador.telefone %></p>
+<p><strong>CNPJ:</strong> <%= @empregador.cnpj %></p>
+
+<%= link_to 'Excluir Empregador', @empregador, method: :delete, data: { confirm: 'Tem certeza que deseja excluir este empregador?' } %>

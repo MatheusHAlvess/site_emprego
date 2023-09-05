@@ -1,10 +1,25 @@
-<h1>Editing empregador</h1>
+<h1>Editar Empregador</h1>
 
-<%= render "form", empregador: @empregador %>
+<%= form_for @empregador do |f| %>
+  <%= render 'shared/errors', object: @empregador %>
 
-<br>
+  <%= f.label :nome %>
+  <%= f.text_field :nome %>
 
-<div>
-  <%= link_to "Show this empregador", @empregador %> |
-  <%= link_to "Back to empregadors", empregadors_path %>
-</div>
+  <%= f.label :nome_empresa %>
+  <%= f.text_field :nome_empresa %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+
+  <%= f.label :endereco %>
+  <%= f.text_field :endereco %>
+
+  <%= f.label :telefone %>
+  <%= f.text_field :telefone %>
+
+  <%= f.label :cnpj %>
+  <%= f.text_field :cnpj %>
+
+  <%= f.submit 'Salvar Atualizações' %>
+<% end %>
