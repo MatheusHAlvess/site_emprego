@@ -10,7 +10,4 @@
   <li><%= link_to 'Listar Empregadores', empregadors_path %></li>
   <li><%= link_to 'Criar Vaga', new_vaga_path %></li>
   <li><%= link_to 'Listar Vagas', vagas_path %></li>
-  <% if @empregador.present? %>
-    <%= link_to 'Criar nova Vaga', new_vaga_empregador_path(@empregador) %>
-  <% end %>
 </ul>
